@@ -5,6 +5,7 @@ import pyttsx3
 import datetime
 import speech_recognition as sr
 import wikipedia
+import webbrowser
 
 
 
@@ -42,9 +43,20 @@ def intro():
 
 
 
-#3. search something on google
-def search():
-    pass
+#3. open something on browser
+def open(query):
+    if 'google' in query:
+        speak('Opening google....')
+        webbrowser.open('google.com')
+    if 'youtube' in query:
+        speak('Opening youtube....')
+        webbrowser.open('youtube.com')
+    if 'spotify' in query:
+        speak('Opening spotify....')
+        webbrowser.open('spotify.com')
+    if 'instagram' in query:
+        speak('Opening instagram....')
+        webbrowser.open('instagram.com')
 
 
 
@@ -87,15 +99,18 @@ def run():
     command = takeCommand().lower()
     if 'youtube' in command:
         # youTube()
-        speak('Youtube')
+        #speak('Youtube')
+        pass
         
     elif 'who are you'  in command:
         intro()
-    elif 'go'  in command:
+    elif 'get lost'  in command:
         exit()
         return -1
     elif 'wikipedia' in command:
         wiki(command)
+    elif 'open' in command:
+        open(command)
 
 
 
