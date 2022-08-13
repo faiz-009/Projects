@@ -1,6 +1,5 @@
 #Author:- MOHD. FAIZ QURESHI
 
-from unittest import result
 import pyttsx3
 import datetime
 import speech_recognition as sr
@@ -28,17 +27,17 @@ def speak(audio):
 def wishMe():
     hour = int(datetime.datetime.now().hour)
     if hour >= 0 and hour < 12:
-        speak("Good Morning sir, I am Jarvis.  ")
+        speak("Good Morning sir, I am rexa.  ")
     elif hour >= 12 and hour < 16:
-        speak("Good afternoon sir, I am Jarvis.  ")
+        speak("Good afternoon sir, I am rexa.  ")
     else:
-        speak("Good evening sir, I am Jarvis. ")
+        speak("Good evening sir, I am rexa. ")
 
 
 
 #2. intro function will give intro of VA
 def intro():
-    intro = 'My name is Jarvis. I am an artificial intelligence, developed by  Mohammad Faaiz .'
+    intro = 'My name is rexa. I am an artificial intelligence, developed by  Mohammad Faaiz .'
     speak(intro)
 
 
