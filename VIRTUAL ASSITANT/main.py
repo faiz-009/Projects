@@ -1,5 +1,8 @@
 #Author:- MOHD. FAIZ QURESHI
 
+from importlib.resources import path
+import os
+from time import time
 import pyttsx3
 import datetime
 import speech_recognition as sr
@@ -27,17 +30,17 @@ def speak(audio):
 def wishMe():
     hour = int(datetime.datetime.now().hour)
     if hour >= 0 and hour < 12:
-        speak("Good Morning sir, I am rexa.  ")
+        speak("Good Morning sir, I am jarvis.  ")
     elif hour >= 12 and hour < 16:
-        speak("Good afternoon sir, I am rexa.  ")
+        speak("Good afternoon sir, I am jarvis.  ")
     else:
-        speak("Good evening sir, I am rexa. ")
+        speak("Good evening sir, I am jarvis. ")
 
 
 
 #2. intro function will give intro of VA
 def intro():
-    intro = 'My name is rexa. I am an artificial intelligence, developed by  Mohammad Faaiz .'
+    intro = 'My name is jarvis. I am a virtual assistant, developed by  Mohammad Faaiz .'
     speak(intro)
 
 
@@ -56,12 +59,18 @@ def open(query):
     if 'instagram' in query:
         speak('Opening instagram....')
         webbrowser.open('instagram.com')
+    if 'vs code' in query:
+        filePath = "C:\\Users\\malik\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+        speak('Opening vs code....')
+        os.startfile(filePath)
 
 
 
 #4. Return time or date
 def timeAndDate():
-    pass
+    strTime = datetime.datetime.now().strftime("%H:%M:%S")
+    speak("Sir, The time now is : ")
+    speak(strTime)
 
 
 
@@ -96,20 +105,28 @@ def exit():
 def run():
     speak("How can I help you sir?")
     command = takeCommand().lower()
-    if 'youtube' in command:
-        # youTube()
-        #speak('Youtube')
-        pass
-        
-    elif 'who are you'  in command:
-        intro()
-    elif 'get lost'  in command:
-        exit()
-        return -1
-    elif 'wikipedia' in command:
-        wiki(command)
-    elif 'open' in command:
-        open(command)
+    if 'jarvis' in command:
+        command = command.replace('jarvis', '')
+        if 'youtube' in command:
+            # youTube()
+            #speak('Youtube')
+            pass
+            
+        elif 'who are you'  in command:
+            intro()
+        elif 'leave'  in command:
+            exit()
+            return -1
+        elif 'wikipedia' in command:
+            wiki(command)
+        elif 'open' in command:
+            open(command)
+        elif 'time' in command:
+            timeAndDate()
+    
+    else:
+        speak("Say that again, please....")
+        takeCommand()
 
 
 
