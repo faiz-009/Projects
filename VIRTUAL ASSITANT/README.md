@@ -3,7 +3,7 @@
 In this project, I have created a virtual assistant named :
 # "JARVIS"
 
-jarvis can perform the following task on voice commands:
+Jarvis can perform the following task on voice commands:
 1. He can search anything on wikipedia
 3. He can tell the current time
 5. He can open some particular websites on browser
